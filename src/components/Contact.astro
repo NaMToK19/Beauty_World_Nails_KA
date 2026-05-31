@@ -1,0 +1,220 @@
+---
+// src/components/Contact.astro
+
+const timeSlots = [];
+for (let hour = 10; hour <= 19; hour++) {
+  timeSlots.push(`${hour}:00 Uhr`);
+  if (hour < 19) {
+    timeSlots.push(`${hour}:30 Uhr`);
+  }
+}
+timeSlots.push("19:30 Uhr");
+
+const services = [
+  "Maniküre - Basic",
+  "Maniküre - Farbe / Shellac",
+  "Pediküre - Basic",
+  "Pediküre - Farbe / Shellac",
+  "Neumodellage (Gel / Pulver)",
+  "Auffüllen",
+  "Wimpernverlängerung",
+  "Ablösen (ohne Neumodellage)"
+];
+---
+
+<section id="kontakt" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-serif text-stone-900 mb-4">Termin anfragen & <span class="text-rose-600 italic">Kontakt</span></h2>
+      <p class="text-stone-600 max-w-2xl mx-auto">Buche deinen Termin bequem online oder melde dich bei Fragen. Wir freuen uns auf deinen Besuch!</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
+      
+      <!-- ========================================== -->
+      <!-- LINKE SEITE: Studio-Infos & Karte -->
+      <!-- ========================================== -->
+      <div class="space-y-8">
+        
+        <!-- Die Kontaktdaten-Box -->
+        <div>
+          <h3 class="text-2xl font-serif text-stone-900 mb-6">Unsere Studio-Daten</h3>
+          <div class="space-y-6 bg-stone-50 p-8 rounded-3xl border border-stone-100">
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0 text-rose-600">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold text-stone-900">Beauty World Nails</p>
+                <p class="text-stone-600 mt-1 text-sm leading-relaxed">Postgalerie - 1. OG<br>Kaiserstraße 217<br>76133 Karlsruhe</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0 text-rose-600">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div class="text-sm">
+                <p class="font-bold text-stone-900 mb-1">Kontakt</p>
+                <p class="text-stone-600">Festnetz: <a href="tel:+4972147005416" class="hover:text-rose-600 font-medium">+49 721 47 00 54 16</a></p>
+                <p class="text-stone-600 mt-1">WhatsApp: <a href="tel:+4915563940202" class="hover:text-rose-600 font-medium">+49 155 63 94 02 02</a></p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0 text-rose-600">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="text-sm">
+                <p class="font-bold text-stone-900 mb-1">Öffnungszeiten</p>
+                <p class="text-stone-600">Mo. – Sa.: 10:00 – 20:00 Uhr</p>
+                <p class="text-rose-700 font-medium mt-1">Sonntag: geschlossen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEU: Anfahrt & Google Maps -->
+        <div class="pt-2">
+          <h4 class="font-bold text-stone-900 mb-3 text-lg">Anfahrt & Parken</h4>
+          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
+            Unser Studio befindet sich direkt im <strong>1. Obergeschoss der Postgalerie</strong> in Karlsruhe. <br><br>
+            <strong>🚊 Bahn:</strong> Haltestelle "Europaplatz / Postgalerie" (direkt vor der Tür).<br>
+            <strong>🚗 Auto:</strong> Nutze am besten das hauseigene Parkhaus der Postgalerie (Zufahrt über die Amalienstraße).
+          </p>
+          
+          <!-- Eingebettete Google Map (Ohne API Key, direkt von Google Maps exportiert) -->
+          <div class="w-full h-64 rounded-3xl overflow-hidden shadow-md border border-stone-200">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.235541571477!2d8.3934371!3d49.0097652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4797064efeb387f3%3A0xc6eb154bb688eb3!2sPostgalerie!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================== -->
+      <!-- RECHTE SEITE: Buchungs-Formular -->
+      <!-- ========================================== -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-stone-100 relative overflow-hidden">
+        
+        <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10"></div>
+        <h3 class="text-2xl font-serif text-stone-900 mb-6">Online Termin anfragen</h3>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+          <input type="hidden" name="access_key" value="4ced9b62-12d5-41bf-92c0-4d19b1261748">
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          <input type="hidden" name="subject" value="Neue Terminanfrage über die Website!">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="vorname" class="block text-sm font-medium text-stone-700 mb-1">Vorname *</label>
+              <input type="text" id="vorname" name="vorname" required class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50">
+            </div>
+            <div>
+              <label for="nachname" class="block text-sm font-medium text-stone-700 mb-1">Nachname *</label>
+              <input type="text" id="nachname" name="nachname" required class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-stone-700 mb-1">Telefonnummer *</label>
+              <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-stone-700 mb-1">E-Mail (optional)</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-stone-700 mb-3">Was dürfen wir für dich tun? (Mehrfachauswahl möglich)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {services.map((service) => (
+                <label class="flex items-center space-x-3 p-3 border border-stone-200 rounded-lg cursor-pointer hover:bg-rose-50 transition-colors group">
+                  <input type="checkbox" name="leistungen" value={service} class="w-4 h-4 text-rose-600 bg-white border-stone-300 rounded focus:ring-rose-500 focus:ring-2 cursor-pointer">
+                  <span class="text-sm text-stone-700 group-hover:text-rose-700">{service}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="datum" class="block text-sm font-medium text-stone-700 mb-1">Wunschdatum *</label>
+              <input type="date" id="datum" name="datum" required class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50">
+            </div>
+            <div>
+              <label for="uhrzeit" class="block text-sm font-medium text-stone-700 mb-1">Wunschuhrzeit *</label>
+              <select id="uhrzeit" name="uhrzeit" required class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-white">
+                <option value="" disabled selected>Bitte wählen</option>
+                {timeSlots.map((slot) => (
+                  <option value={slot}>{slot}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="bemerkungen" class="block text-sm font-medium text-stone-700 mb-1">Infos / Bemerkungen</label>
+            <textarea id="bemerkungen" name="bemerkungen" rows="3" placeholder="Besondere Wünsche oder Fragen..." class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all bg-stone-50/50 resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-stone-900 hover:bg-rose-700 text-white font-medium py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 text-base tracking-wide mt-2">
+            Terminanfrage senden
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const dateInput = document.getElementById('datum') as HTMLInputElement;
+  
+  if (dateInput) {
+    // 1. Verhindere die Auswahl von Tagen in der Vergangenheit
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today; 
+
+    // 2. Sperre Sonntage und spezifische Feiertage/Urlaubstage
+    dateInput.addEventListener('input', function(e) {
+      const selectedDate = new Date(this.value);
+      const day = selectedDate.getDay(); // 0 = Sonntag, 1 = Montag...
+      
+      // Format für Feiertage: 'YYYY-MM-DD' (Hier einfach Urlaub/Feiertage eintragen)
+      const blockedDates = [
+        '2026-12-25', // 1. Weihnachtsfeiertag
+        '2026-12-26', // 2. Weihnachtsfeiertag
+        '2027-01-01', // Neujahr
+      ];
+
+      const isBlockedDate = blockedDates.includes(this.value);
+
+      if (day === 0) {
+        alert('An Sonntagen haben wir geschlossen. Bitte wähle einen anderen Tag.');
+        this.value = ''; // Setzt das Feld wieder zurück
+      } else if (isBlockedDate) {
+        alert('An diesem Tag haben wir geschlossen (Feiertag/Urlaub). Bitte wähle einen anderen Tag.');
+        this.value = '';
+      }
+    });
+  }
+</script>
